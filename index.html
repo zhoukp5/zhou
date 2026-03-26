@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>我的文件主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background: #f5f7fa;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .title {
+            font-size: 26px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .file-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 20px;
+            margin: 12px 0;
+            background: #409eff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+        .file-btn:hover {
+            background: #337ecc;
+            transform: scale(1.02);
+        }
+        .tip {
+            margin-top: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">我的 HTML 文件</h1>
+    <div class="container" id="fileList"></div>
+    <p class="tip">✅ 自动加载所有 .html 文件</p>
+
+    <script>
+        // 自动获取当前仓库路径
+        const path = window.location.pathname;
+        const base = window.location.origin + path.substring(0, path.lastIndexOf('/') + 1);
+
+        // 自动扫描并显示所有 HTML 文件
+        window.addEventListener('DOMContentLoaded', () => {
+            const list = document.getElementById('fileList');
+            
+            // ========== 在这里自动添加你的 HTML 文件 ==========
+            const htmlFiles = [
+                // 你上传的所有 HTML 会自动显示，不用改这里！
+                ...document.links
+            ].map(link => link.href)
+              .filter(href => href.endsWith('.html') && !href.includes('index.html'));
+
+            // 如果你是第一次用，把下面这段打开即可自动生成按钮
+            // 👇 👇 👇 核心自动识别 👇 👇 👇
+            (async () => {
+                const res = await fetch(base);
+                const text = await res.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                
+                const links = doc.querySelectorAll('a');
+                const htmls = Array.from(links)
+                    .map(a => a.title || a.textContent.trim())
+                    .filter(name => name.endsWith('.html') && name !== 'index.html');
+
+                htmls.forEach(file => {
+                    const a = document.createElement('a');
+                    a.className = 'file-btn';
+                    a.href = file;
+                    a.target = '_blank';
+                    a.textContent = file.replace('.html', '');
+                    list.appendChild(a);
+                });
+            })();
+        });
+    </script>
+</body>
+</html>
