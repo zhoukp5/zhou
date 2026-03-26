@@ -2,73 +2,156 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>我的文件主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件导航首页</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
         body {
-            background: #f5f7fa;
-            padding: 40px 20px;
-            text-align: center;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            margin-bottom: 30px;
+            text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
-        .button {
-            display: block;
-            width: 300px;
-            margin: 10px auto;
-            padding: 14px 20px;
-            background: #007bff;
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .file-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0366d6;
             color: white;
-            font-size: 16px;
-            border-radius: 10px;
             text-decoration: none;
-            transition: 0.2s;
+            border-radius: 5px;
+            transition: background 0.2s;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
         }
-        .button:hover {
-            background: #0056b3;
+        .file-btn:hover {
+            background-color: #0250b3;
+        }
+        .loading, .error {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        .error {
+            color: #d73a49;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
 <body>
-    <h1>我的 HTML 文件</h1>
-    <div id="container"></div>
+<div class="container">
+    <h1>📂 仓库文件导航</h1>
+    <div id="file-list" class="file-list">
+        <div class="loading">正在加载文件列表...</div>
+    </div>
+    <div class="footer">自动扫描仓库根目录下的所有文件，点击按钮打开文件</div>
+</div>
 
-    <script>
-        // 自动获取当前仓库地址
-        const repoUrl = window.location.origin + window.location.pathname;
-
-        // 自动扫描当前目录所有 HTML 文件
-        fetch(repoUrl)
-            .then(res => res.text())
-            .then(text => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(text, 'text/html');
-                const container = document.getElementById('container');
-
-                // 找出所有 .html 文件
-                const links = doc.querySelectorAll('a[href$=".html"]');
-                
-                links.forEach(a => {
-                    const filename = a.textContent.trim();
-                    if (filename === 'index.html') return; // 跳过自己
-
-                    const btn = document.createElement('a');
-                    btn.className = 'button';
-                    btn.href = filename;
-                    btn.target = '_blank';
-                    btn.textContent = filename.replace('.html', '');
-                    container.appendChild(btn);
-                });
+<script>
+    // ================= 配置 =================
+    // 如果您希望限定特定目录，请修改 path 变量，例如 'docs/'
+    const path = '';  // 留空表示根目录，注意不要以斜杠开头，末尾要斜杠
+    
+    // 自动从 GitHub Pages URL 获取仓库信息（也可手动指定）
+    // 如果部署在 https://username.github.io/repo-name/ 这种格式
+    let repoOwner, repoName;
+    
+    // 方式1：从当前页面URL自动推断（适用于GitHub Pages）
+    // 例如页面地址为 https://username.github.io/repo-name/index.html
+    const urlParts = window.location.pathname.split('/');
+    if (urlParts.length >= 3 && window.location.hostname.endsWith('github.io')) {
+        repoName = urlParts[1];
+        repoOwner = window.location.hostname.split('.')[0];
+    } else {
+        // 方式2：手动设置（如果上述推断失败，请手动修改以下两行）
+        repoOwner = '你的用户名';   // 例如 'octocat'
+        repoName = '你的仓库名';     // 例如 'hello-world'
+    }
+    
+    // 使用 GitHub API 获取文件列表
+    async function fetchFileList() {
+        const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`;
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error(`GitHub API 请求失败: ${response.status}`);
+            }
+            const files = await response.json();
+            // 过滤出文件（类型为 'file'），可根据需要筛选扩展名
+            const htmlFiles = files.filter(file => 
+                file.type === 'file' && 
+                file.name !== 'index.html' &&  // 排除当前页
+                (file.name.endsWith('.html') || file.name.endsWith('.htm') || true) // 如需显示所有文件，去掉扩展名限制
+            );
+            
+            if (htmlFiles.length === 0) {
+                document.getElementById('file-list').innerHTML = '<div class="error">未找到其他文件</div>';
+                return;
+            }
+            
+            // 生成按钮
+            const container = document.getElementById('file-list');
+            container.innerHTML = '';
+            htmlFiles.forEach(file => {
+                const btn = document.createElement('a');
+                btn.href = file.path;  // 直接使用相对路径，因为文件在同仓库根目录下
+                btn.textContent = file.name;
+                btn.className = 'file-btn';
+                btn.target = '_blank';  // 新标签页打开，也可以不设置
+                container.appendChild(btn);
             });
-    </script>
-</body>
+        } catch (error) {
+            console.error('获取文件列表失败:', error);
+            document.getElementById('file-list').innerHTML = `<div class="error">加载失败：${error.message}<br>请检查仓库信息是否正确，或使用手动文件列表方案。</div>`;
+        }
+    }
+    
+    // 如果无法通过 API 获取（例如私有仓库或API限制），可使用本地预定义文件列表作为后备
+    // 您可以在下方手动添加文件名
+    const fallbackFiles = [
+        'page1.html',
+        'page2.html',
+        'example.html'
+    ];
+    
+    // 优先使用 API，失败则使用后备列表（可选）
+    fetchFileList().catch(() => {
+        // 如果 API 调用失败，使用手动列表
+        console.warn('使用手动文件列表');
+        const container = document.getElementById('file-list');
+        container.innerHTML = '';
+        fallbackFiles.forEach(file => {
+            const btn = document.createElement('a');
+            btn.href = file;
+            btn.textContent = file;
+            btn.className = 'file-btn';
+            btn.target = '_blank';
+            container.appendChild(btn);
+        });
+    });
 </script>
 </body>
 </html>
