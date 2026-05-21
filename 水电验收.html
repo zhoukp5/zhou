@@ -1,0 +1,320 @@
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水电工程八大专项验收指南 (展开版)</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Inter 字体 (作为主要字体) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* 使用 Inter 字体 */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        
+        /* 针对内容列表的优化 */
+        .content-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .content-list li::before {
+            content: '•';
+            color: #059669; /* Emerald 600 */
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+        /* 针对描述性文本的样式 */
+        .detail-item p {
+            margin-top: 0.5rem;
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        /* 优化标题锚点效果 (已删除，因为跳转链接已移除) */
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-6xl mx-auto bg-white shadow-2xl rounded-xl p-6 md:p-10">
+        
+        <!-- 头部与简介 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">
+                水电工程八大专项验收指南
+            </h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                根据国家能源局及相关主管部门的规定，水电工程专项验收是工程竣工验收的前提。本指南详细列出了八个核心专项验收的法律依据、时间、主体和程序。
+            </p>
+            <div class="mt-6 inline-block p-2 bg-emerald-100 text-emerald-700 rounded-full font-medium">
+                <span class="font-bold">八大专项</span> 确保工程合规与安全
+            </div>
+        </header>
+
+        <!-- 流程概述 (取代原四个占位图) -->
+        <div class="mb-12 p-6 bg-blue-50 rounded-xl border-l-4 border-blue-500 shadow-md">
+            <h2 class="text-2xl font-bold text-blue-800 mb-3 flex items-center">
+                <svg class="w-6 h-6 mr-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                八大专项验收核心概述
+            </h2>
+            <p class="text-gray-700 leading-relaxed">
+                水电工程竣工验收是工程投入正式运行的最后环节。八大专项验收是其**前置条件**，涵盖了工程质量、生态环保、社会稳定及财务合规等全方位要求，所有专项验收合格后方可进行最终的竣工验收。
+            </p>
+            <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm font-medium">
+                <span class="p-2 bg-blue-100 rounded-lg text-blue-700">🏗️ 质量与安全 (1, 5, 6)</span>
+                <span class="p-2 bg-green-100 rounded-lg text-green-700">🌱 环境与水土 (3, 4)</span>
+                <span class="p-2 bg-yellow-100 rounded-lg text-yellow-700">🏠 社会与档案 (2, 7)</span>
+                <span class="p-2 bg-red-100 rounded-lg text-red-700">💰 财务与结算 (8)</span>
+            </div>
+        </div>
+
+        <!-- 专项验收列表 (全部展开) -->
+        <section id="acceptance-list">
+            
+            <!-- 1. 枢纽工程专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-1">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    1. 枢纽工程专项验收 (Hub Project)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《水库大坝安全管理条例》, 《水电工程验收管理办法》</li>
+                            <li>规程规范：《水电工程验收规程》(NB/T35048-2015)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：初期运行检验（如洪水期考验）后，竣工验收前。</li>
+                            <li>验收主体：省级人民政府能源主管部门委托技术主持单位组织。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人提交申请 → 技术预验收 → 验收委员会会议检查 → 报送鉴定书。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>检查枢纽功能、建筑物安全、金属结构、机电设备等，需提供工程安全鉴定报告、质量监督报告等。</p>
+                </div>
+            </div>
+
+            <!-- 2. 建设征地移民安置专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-2">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    2. 建设征地移民安置专项验收 (Land Acquisition and Resettlement)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《大中型水利水电工程建设征地补偿和移民安置条例》</li>
+                            <li>规程规范：《水电工程建设征地移民安置验收规程》(NB/T 35013-2013)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：分阶段验收（截流、蓄水前）和竣工验收（移民任务全部完成后）。</li>
+                            <li>验收主体：省级人民政府组织，必要时由国务院移民管理机构组织。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人提交申请 → 成立验收委员会 → 检查安置点、资金使用 → 形成鉴定书。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>需完成移民搬迁、生产安置、专项设施迁建等，提供移民安置规划、实施报告、资金审计等资料。</p>
+                </div>
+            </div>
+
+            <!-- 3. 环境保护专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-3">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    3. 环境保护专项验收 (Environmental Protection)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《环境保护法》, 《建设项目环境保护管理条例》</li>
+                            <li>规程规范：《建设项目竣工环境保护验收技术规范生态影响类》(HJ394)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：工程竣工验收前，通常在水库蓄水后、机组投运后。</li>
+                            <li>验收主体：项目法人自主组织，接受环保主管部门监督。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>委托编制验收调查报告 → 组织现场检查、公示 → 形成验收意见，向环保部门备案。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>检查环保设施（如污水处理、生态流量泄放）运行情况，提供环评报告、监测数据、公众参与记录等。</p>
+                </div>
+            </div>
+
+            <!-- 4. 水土保持设施专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-4">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    4. 水土保持设施专项验收 (Water and Soil Conservation)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《水土保持法》, 水利部关于水土保持设施自主验收的通知</li>
+                            <li>规程规范：《水电工程水土保持设施验收规程》(NB/T35119-2018)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：分阶段验收（与主体工程同步）和竣工验收（工程完工后、竣工验收前）。</li>
+                            <li>验收主体：项目法人或技术主持单位组织（阶段验收）。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人自查 → 验收组现场检查 → 形成鉴定书 → 向社会公开并报备水行政主管部门。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>检查拦渣坝、排水沟、植被恢复等设施，需提供水土保持方案、监测报告、监理总结等。</p>
+                </div>
+            </div>
+
+            <!-- 5. 消防专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-5">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    5. 消防专项验收 (Firefighting)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《消防法》, 《建设工程消防监督管理规定》</li>
+                            <li>规程规范：消防部门相关技术标准（如XF836）</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：工程竣工验收前，建（构）筑物投入使用前。</li>
+                            <li>验收主体：公安消防部门或住房城乡建设主管部门负责。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人提交申请 → 消防部门检查设施（灭火系统、疏散通道） → 出具消防验收意见书。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>消防设计需经审核，设施需通过检测，提供消防设计文件、检测报告、管理制度等。</p>
+                </div>
+            </div>
+
+            <!-- 6. 劳动安全与工业卫生专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-6">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    6. 劳动安全与工业卫生专项验收 (Labor Safety and Hygiene)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《安全生产法》, 《水电工程劳动安全与工业卫生设计规范》</li>
+                            <li>规程规范：《水电工程劳动安全与工业卫生验收规程》(NB/T 35025-2014)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：工程竣工验收前，通常在机组投运后。</li>
+                            <li>验收主体：验收主持单位（省级能源主管部门）会同安全监管部门。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人提交申请（附安全评价报告） → 验收委员会预审和现场检查 → 形成鉴定书。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>检查安全防护设施、职业病防护措施、应急预案等，需提供安全预评价报告、监理报告、运行记录等。</p>
+                </div>
+            </div>
+
+            <!-- 7. 工程档案专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-7">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    7. 工程档案专项验收 (Project Archives)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《档案法》, 《水利工程建设项目档案管理规定》</li>
+                            <li>规程规范：《水电工程项目档案验收工作导则》(NB/T 10076-2018)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：分阶段验收和竣工验收（枢纽工程专项验收后，竣工验收前）。</li>
+                            <li>验收主体：国家或省级档案行政管理部门组织，或由项目主管单位组织。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人自检并编制报告 → 提交申请 → 验收组检查完整性、规范性 → 形成验收意见。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>档案需齐全、准确，符合相关办法，提供工程文件、图纸、合同、验收记录等。</p>
+                </div>
+            </div>
+
+            <!-- 8. 工程决算专项验收 -->
+            <div class="mb-8 p-6 bg-white border border-gray-200 rounded-xl shadow-lg transition duration-300" id="section-8">
+                <h2 class="section-title text-2xl font-extrabold text-emerald-700 mb-3 pt-2">
+                    8. 工程决算专项验收 (Project Final Accounts)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 detail-item border-t pt-4 border-gray-100">
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">法律依据与规程</h3>
+                        <ul class="content-list text-sm">
+                            <li>法律法规：《基本建设财务规则》</li>
+                            <li>规程规范：《水利基本建设项目竣工财务决算编制规程》(SL/T 19)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800 mb-2">时间与主体</h3>
+                        <ul class="content-list text-sm">
+                            <li>验收时间：工程竣工验收前，在竣工财务决算编制完成后。</li>
+                            <li>验收主体：项目法人组织，需通过审计部门竣工审计。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h3 class="font-bold text-lg text-gray-800 mb-2">程序与具体要求</h3>
+                    <p class="text-sm"><strong>验收程序：</strong>项目法人编制报告 → 审计部门进行竣工审计 → 整改审计问题 → 作为竣工验收依据。</p>
+                    <p class="text-sm"><strong>具体要求：</strong>决算需真实、完整，投资控制在概算内，提供决算报告、审计报告、合同结算资料等。</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 总结与注意事项 -->
+        <footer class="mt-12 pt-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">总体要求与注意事项</h2>
+            <ul class="content-list text-gray-600 space-y-2 text-base">
+                <li>专项验收必须在工程竣工验收前完成，其成果文件是竣工验收的组成部分。</li>
+                <li>所有验收均以国家法律法规、行业标准、批准的设计文件和合同为依据。</li>
+                <li>未通过专项验收的工程不得进行竣工验收。</li>
+                <li class="font-semibold text-red-600">验收遗留问题需明确处理责任和时限。</li>
+            </ul>
+        </footer>
+
+    </div>
+</body>
+</html>
